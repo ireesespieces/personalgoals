@@ -5,13 +5,77 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css" />
-          <script src="script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="script.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
-      <p> hello world</p>
-      <!--inputs, radar chart-->
+      <h2>polcogoals, track your everyday life</h2>
+      <p>core = fundamentals, discipline, leadership 
+        <br> physical = strength, endurance, dexterity 
+        <br> intel = intelligence, knowledge, analytical thinking 
+        <br> spirtual = faith, morality, inner strength 
+        <br> psyche = mental fortitude, emotional resillence, psychology
+      </p>
+      <div id="levelsContainer">
+        <div class="category-progress">
+            <p>Core - Level: <span id="core-level">1</span></p>
+            <progress id="core-progress" value="0" max="100"></progress>
+        </div>
+        <div class="category-progress">
+            <p>Intel - Level: <span id="intel-level">1</span></p>
+            <progress id="intel-progress" value="0" max="100"></progress>
+        </div>
+        <div class="category-progress">
+            <p>Physical - Level: <span id="physical-level">1</span></p>
+            <progress id="physical-progress" value="0" max="100"></progress>
+        </div>
+        <div class="category-progress">
+            <p>Spiritual - Level: <span id="spiritual-level">1</span></p>
+            <progress id="spiritual-progress" value="0" max="100"></progress>
+        </div>
+        <div class="category-progress">
+            <p>Psyche - Level: <span id="psyche-level">1</span></p>
+            <progress id="psyche-progress" value="0" max="100"></progress>
+        </div>
+    </div>    
+      <!--progress bar for each point added and then to 100 points, modulo 100, add 1 level-->
+      <div id="forms">
+        <form id="dataForm">
+          <label for="category">Category:</label><br>
+          <select name="category" id="category">
+            <option value="n/a"> </option>
+            <option value="core">core</option>
+            <option value="intel">intel</option>
+            <option value="physical">physical</option>
+            <option value="spiritual">spiritual</option>
+            <option value="psyche">psyche</option>
+          </select> <br><br>
+          <label for="reason">Reason:</label><br>
+          <input type="text" id="reason" name="reason"><br><br>
+          <label for="points">Points:</label><br>
+          <input type="number" id="points" name="points"><br><br>
+          <input type="submit" value="Submit">
+          <input type="button" value="Reset" id="resetButton">
+        </form>
+      </div>
+      <h2>Reasons</h2>
+      <ul id="reasonsList" height="100" width="100"></ul>
+      <div id="chartContainer">
+        <canvas id="radarChart"></canvas>
+      </div>
+      <h3>Points System</h3>
+      <p class="ptsh">intel</p>
+      <p>homework: 1 pts <br> project: 5 pts <br> designing/cadding: 5 pts <br> video editing: 1 pts </p>
+      <p class="ptsh">core</p>
+      <p>studying: 5 pts<br> learning: 5 pts <br> public speaking: 5 pts</p>
+      <p class="ptsh">physical</p>
+      <p>swimming: 3 pts <br> gym: 3 pts <br> walk: 1 pt</p>
+      <p class="ptsh">spiritual</p>
+      <p>going to chruch: 1 pt <br> reading the bible: 3 pts <br> hanging out with friends and family: 3 pts</p>
+      <p class="ptsh">psyche</p>
+      <p>jounral: 3 pts</p>
     </body>
 </html>
